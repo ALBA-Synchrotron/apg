@@ -26,7 +26,9 @@ git clone https://github.com/tango-controls/fandango.git
 
 cd fandango
 
-python setup.py --command-packages=stdeb.command sdist_dsc --debian-version 0~bpo9+0~alba+1 --suite stretch-backports --depends 'python-tango, python-taurus'
+python setup.py --command-packages=stdeb.command sdist_dsc \
+                --debian-version 0~bpo9+0~alba+1 --suite stretch-backports \
+                --depends 'python-tango, python-taurus'
 
 cd deb_dist
 
