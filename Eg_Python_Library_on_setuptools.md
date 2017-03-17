@@ -2,7 +2,8 @@ Example: python library package using setuptools
 =========================================
 
 
-For fandango package:
+For building fandango package Workflow C is followed:
+
 
 Build and run the debpack container:
 <pre>
@@ -23,6 +24,7 @@ Inside debpack docker container do:
 cd /packaging
 
 git clone https://github.com/tango-controls/fandango.git
+git checkout develop
 
 cd fandango
 
@@ -45,25 +47,33 @@ git push --all
 git push --tags
 
 
-
 </pre>
 
 
-For testing the build, adding and/or fixing debian files (rules, control, copyright) according to lintian an piupart quality check, 
-run iteratively `gbp buildpackage` from inside the `/packaging/fandango_deb` folder, correct files, and run again the command.
+Add and/or modify copyright, control and rules file.
+
+Also a python-fandango.lintian-overrides file has to be added inside the folder
+/packaging/fandango_deb/debian if we have to bypass some lintian error 
+(the directive is to try to solve as many of the reported lintian errors
+as possible). This file indicates which warnings have to be overriden by lintian. 
+In our case, we have added: **manpage-has-errors-from-man** to the file 
+python-fandango.lintian-overrides.
+
+
+
+Before testing the build, it is a good idea to update cobuilder by using:
+`cowbuilder --update`
+
+For testing the build, adding and/or fixing debian files (rules, control, copyright) 
+according to lintian an piupart quality check, run iteratively `gbp buildpackage` 
+from inside the `/packaging/fandango_deb` folder, correct files, and run again the command.
 
 
 
 
-and build the final package:
+Finally, when everything is correct, build the final package and tag it by doing:
+`gbp buildpackage --git-tag`
 
 
 
-----------
-
-
-
-new file into debian:
-
-"python-fandango.lintian-overrides"
 
