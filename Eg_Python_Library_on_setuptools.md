@@ -60,16 +60,31 @@ In our case, we have added: **manpage-has-errors-from-man** to the file
 python-fandango.lintian-overrides.
 
 
+Other files that had to be added in fandango package in order to create the 
+manpages are:
+fandango_deb/debian/manpages
+fandango_deb/debian/help2man
+And the file fandango_deb/debian/rules has been modified to allow the manpage
+creation.
+It has been needed to install the application help2man: apt-get install help2man
+
+
 
 Before testing the build, it is a good idea to update cobuilder by using:
 `cowbuilder --update`
 
 For testing the build, adding and/or fixing debian files (rules, control, copyright) 
 according to lintian an piupart quality check, run iteratively `gbp buildpackage` 
-from inside the `/packaging/fandango_deb` folder, correct files, and run again the command.
+from inside the `/packaging/fandango_deb` folder, correct files, and run again the command,
+till you are satisfied: no more error or warnings from lintian appears. If some
+of the warnings has to be bypassed, indicate it in python-fandango.lintian-overrides
+file, as indicated above.
 
+Next, update changelog using:
+`gbp dch --release --commit --since <commithash>`
 
-
+Perform a final test with:
+`gbp buildpackage` 
 
 Finally, when everything is correct, build the final package and tag it by doing:
 `gbp buildpackage --git-tag`
