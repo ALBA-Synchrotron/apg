@@ -76,8 +76,11 @@ cowbuilder --update
 </pre>
 
 For testing the build, adding and/or fixing debian files (rules, control, copyright) 
-according to lintian an piupart quality check, run iteratively `gbp buildpackage` 
-from inside the `/packaging/fandango_deb` folder, correct files, and run again the command,
+according to lintian an piupart quality check, run iteratively 
+<pre>
+gbp buildpackage
+</pre>
+from inside the /packaging/fandango_deb folder, correct files, and run again the command,
 till you are satisfied: no more error or warnings from lintian appears. If some
 of the warnings has to be bypassed, indicate it in python-fandango.lintian-overrides
 file, as indicated above.
