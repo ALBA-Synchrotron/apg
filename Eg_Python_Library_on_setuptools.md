@@ -70,7 +70,7 @@ It has been needed to install the application help2man: apt-get install help2man
 
 
 
-Before testing the build, it is a good idea to update cobuilder by using:
+Before testing the build, it is a good idea to update cowbuilder by using:
 `cowbuilder --update`
 
 For testing the build, adding and/or fixing debian files (rules, control, copyright) 
