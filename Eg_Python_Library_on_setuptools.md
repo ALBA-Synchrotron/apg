@@ -71,7 +71,9 @@ It has been needed to install the application help2man: apt-get install help2man
 
 
 Before testing the build, it is a good idea to update cowbuilder by using:
-`cowbuilder --update`
+<pre>
+cowbuilder --update
+</pre>
 
 For testing the build, adding and/or fixing debian files (rules, control, copyright) 
 according to lintian an piupart quality check, run iteratively `gbp buildpackage` 
@@ -81,14 +83,19 @@ of the warnings has to be bypassed, indicate it in python-fandango.lintian-overr
 file, as indicated above.
 
 Next, update changelog using:
-`gbp dch --release --commit --since <commithash>`
+<pre>
+gbp dch --release --commit --since <commithash>
+</pre>
 
 Perform a final test with:
-`gbp buildpackage` 
+<pre>
+gbp buildpackage
+</pre>
 
 Finally, when everything is correct, build the final package and tag it by doing:
-`gbp buildpackage --git-tag`
-
+<pre>
+gbp buildpackage --git-tag
+</pre>
 
 
 
