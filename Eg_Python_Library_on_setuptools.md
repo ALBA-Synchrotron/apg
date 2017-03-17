@@ -47,7 +47,8 @@ git push --tags
 </pre>
 
 
-For testing the build, adding and/or fixing debian files (rules, control, copyright) according to lintian an piupart quality check, run iteratively `gbp buildpackage` from inside the `/packaging/fandango_deb` folder, correct files, and run again the command.
+For testing the build, adding and/or fixing debian files (rules, control, copyright) according to lintian an piupart quality check, 
+run iteratively `gbp buildpackage` from inside the `/packaging/fandango_deb` folder, correct files, and run again the command.
 
 
 
