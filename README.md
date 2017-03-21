@@ -20,10 +20,11 @@ how to perform each step):
 
 1. Get a debpack:alba docker container running and log into it
 2. Clone the packaging repo from git.cells.es/ctpkg/<name>
-3. Edit the Debian Folder Files as needed
-4. Test the package building 
-5. Update changelog, build the package, tag it, and push
-6. Upload artifacts to ALBA repo
+3. Update upstream if needed
+4. Edit the Debian Folder Files as needed
+5. Test the package building
+6. Update changelog, build the package, tag it, and push
+7. Upload artifacts to ALBA repo
 
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
