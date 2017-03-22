@@ -43,8 +43,7 @@ Where:
   it is a number for existing debian packages, but in some cases, it 
   can be more complex (e.g. `4+b3`). If  there is no existing debian
   package, use `0`. If you are including any extra patches, you have to
-  add +patch<N> where <N> is a correlatively increasing number beginning in   
-  1.
+  add +patch<N> where <N> is a correlatively increasing number beginning in `1`.
 - `<DISTRO>` is the distro major release number (e.g., <DISTRO> is `9`
   for [Debian Stretch](https://wiki.debian.org/es/DebianStretch)).
 - `<BPO>` is the **debian** backport number. If we are not backporting from an existing backport, use `0`
