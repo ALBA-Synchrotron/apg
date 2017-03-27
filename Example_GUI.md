@@ -92,33 +92,16 @@ to remove the generated `pyc` files before uninstall action.
 * [watch](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui..prerm)
 **TODO** In the **future** this file should point to git.cells.es
 
-For auto generate man pages, for the `linacgui` launchers (base on help2man), is necessary to create these files:
+The man pages of the two launchers of this package were created following this [recipe](https://git.cells.es/ctpkg/documentation/blob/master/Auto_generation_of_man_pages.md).
+These are the added files:
 
 * [linacgui.manpages](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.manpages): File to point to man pages
 
 * [help2man](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/help2man). Is a generic man header.
 
-Moreover  of add the  `override_dh_clean` and `override_dh_installman` in `rules` file.
-```
-MAN_CTLI=debian/ctli.1
-MAN_CTLISETUP=debian/ctlisetup.1
-override_dh_clean:
-        dh_clean $(MAN_CTLI) $(MAN_CTLISETUP)
-override_dh_installman:
-        export PYTHONPATH=$(CURDIR)/debian/linacgui/usr/share/linacgui:$(PYTHONPATH)
-        help2man --name 'ctli launcher' \
-                --no-discard-stderr \
-                --include debian/help2man \
-                --no-info \
-                ./debian/linacgui/usr/bin/ctli > $(MAN_CTLI)
-        help2man --name 'ctlisetup launcher' \
-                --no-discard-stderr \
-                --include debian/help2man \
-                --no-info \
-                ./debian/linacgui/usr/bin/ctlisetup > $(MAN_CTLISETUP)
-        dh_installman
+And as the guide said, the rules and control file were modified, adding  `override_dh_clean` and `override_dh_installman` in the rules
+file and the build dependencies in the control file. You can see these changes in this [commit](https://git.cells.es/ctpkg/linacgui_deb/commit/61493f02e80c94c2161222ad0d9234248ec9847c).
 
-``` 
 A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
 
 A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
