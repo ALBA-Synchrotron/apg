@@ -62,10 +62,53 @@ create_ctpkg_project yat_deb "Repo for packaging YAT on debian" \
 
 B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
 
-A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
+A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
 
-The `dh_make` creates a templates of most of the needed debian files. 
+The `dh_make` creates templates of most of the needed debian files. 
 In this step those files were edited, created or deleted.  You can see the changes in this [commit](https://git.cells.es/ctpkg/yat_deb/commit/f207d5be95517652c7c08dee61ba3579b7d8d174)
+
+For building the project, the upstream has to be fixed. It was patched following this [guide](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.patches.html).
+
+These were the executed commands:
+
+```
+gbp pq import
+# Three patches were applied via commits
+gbp pq export
+git add debian/patches
+git commit
+```
+
+You can see the three patches, [here](https://git.cells.es/ctpkg/yat_deb/commit/620a07c65a2ee6ac1586b37757002f3bb35ffbb7).
+
+The main changes were in `rules` file, where two override were needed for compiling the project: 
+
+```
+override_dh_auto_configure:
+        ./autogen.sh
+        dh_auto_configure --
+
+override_dh_auto_build:
+        make -C src
+```
+
+And for avoiding these two lintian error:
+- I: libyat1: no-symbols-control-file usr/lib/x86_64-linux-gnu/libyat.so.1.0.0
+- E: libyat1: symbols-file-contains-current-version-with-debian-revision
+
+These overrides were added:
+
+```
+override_dh_shlibdeps: 	
+    dpkg-gensymbols -plibyat1 -Odebian/libyat1.symbols -q 	sed -e "s:-[^-]*$::~:" -i debian/libyat1.symbols 	
+    dh_makeshlibs 	
+    dh_shlibdeps 
+
+override_dh_clean: 	
+    dh_clean libyat1.symbols
+
+```
+
 
 A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
 
