@@ -152,7 +152,7 @@ gbp buildpackage
 
 Finally, when everything is correct, build the final package and tag it by doing:
 ```
-gbp buildpackage --git-tag
+gbp buildpackage --git-tag-only
 git push --all
 git push --tags
 
