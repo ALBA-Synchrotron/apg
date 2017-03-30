@@ -38,7 +38,7 @@ cd fandango
 
 python setup.py --command-packages=stdeb.command sdist_dsc \
                 --upstream-version-suffix +git20170317.1.5a7706 \
-                --debian-version 0~bpo9+0~alba+1
+                --debian-version 0~bpo9+0~alba+1 \
                 --build-depends "help2man" \
                 --depends 'python-tango, python-taurus' \
                 --suite stretch-backports
