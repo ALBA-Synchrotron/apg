@@ -69,7 +69,7 @@ In this step those files were edited, created or deleted.  You can see the chang
 
 For building the project, the upstream has to be fixed. It was patched following this [guide](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.patches.html).
 
-These were the executed commands:
+These commands were execute:
 
 ```
 gbp pq import
@@ -81,7 +81,9 @@ git commit
 
 You can see the three patches, [here](https://git.cells.es/ctpkg/yat_deb/commit/620a07c65a2ee6ac1586b37757002f3bb35ffbb7).
 
-The main changes were in `rules` file, where two override were needed for compiling the project: 
+After patching the upstream, the debian files need to be edited.
+
+The main changes were in [rules](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/rules) file, where two override were needed for compiling the project: 
 
 ```
 override_dh_auto_configure:
@@ -108,6 +110,11 @@ override_dh_clean:
     dh_clean libyat1.symbols
 
 ```
+
+This project generate two packages the `libyat1` and `libyat1-dev`, in the [control](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/control)
+has been added the build dependencies and proper descriptions. The [libyat-dev.install](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/libyat-dev.install),
+[copyright](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/copyright), and the [watch](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/watch) 
+have been modified to fill/fix the generated template.
 
 
 A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
