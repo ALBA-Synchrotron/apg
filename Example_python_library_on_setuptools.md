@@ -80,19 +80,25 @@ git push --tags
 Add and/or modify copyright, control and rules file.
 
 Also a python-fandango.lintian-overrides file has to be added inside the folder
-/packaging/fandango_deb/debian if we have to bypass some lintian error 
-(the directive is to try to solve as many of the reported lintian errors
-as possible). This file indicates which warnings have to be overriden by lintian. 
+/packaging/fandango_deb/debian if we have to bypass some lintian error. This 
+file indicates which warnings will be overriden by lintian. 
+Remember that the directive is to try to solve as many of the reported lintian 
+errors as possible (overriding the lintian errors shall be the exception, not
+the norm).
 In our case, we have added: **manpage-has-errors-from-man** to the file 
 python-fandango.lintian-overrides.
-
 
 Other files that had to be added in fandango package in order to create the 
 manpages are:
 fandango_deb/debian/manpages
 fandango_deb/debian/help2man
-And the file fandango_deb/debian/rules has been modified to allow the manpage
-creation.
+
+* [rules](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/rules)
+file has been modified to allow the manpage creation.
+
+* [copyright](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/copyright) is needed to pass the lintian checks.
+
+
 
 
 ## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
