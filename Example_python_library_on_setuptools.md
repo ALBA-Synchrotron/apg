@@ -38,6 +38,7 @@ cd fandango
 
 python setup.py --command-packages=stdeb.command sdist_dsc \
                 --debian-version 0~bpo9+0~alba+1 --suite stretch-backports \
+                --build-depends "help2man"
                 --depends 'python-tango, python-taurus'
 ```
 
@@ -88,17 +89,24 @@ the norm).
 In our case, we have added: **manpage-has-errors-from-man** to the file 
 python-fandango.lintian-overrides.
 
+
+
+* [rules](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/rules)
+file has been modified to allow the manpage creation.
+
 Other files that had to be added in fandango package in order to create the 
 manpages are:
 fandango_deb/debian/manpages
 fandango_deb/debian/help2man
 
-* [rules](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/rules)
-file has been modified to allow the manpage creation.
 
 * [copyright](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/copyright) is needed to pass the lintian checks.
 
+* [control](https://git.cells.es/ctpkg/fandango_deb/commit/cd57a8013f1c97393db1ec1c5dfe625a9b880657) file
+has been modified, to fix formatting issues.
 
+* [watch](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/watch)
+**TODO** In the **future** this file should point to github fandango location.
 
 
 ## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
