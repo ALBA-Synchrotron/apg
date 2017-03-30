@@ -2,9 +2,9 @@
 
 This was the followed workflow for creating the linacgui package:
 
-C1. [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+## C1. [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
 
-C2. [Get the python module upstream source and cd into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_python_module_upstream_source_and_cd_into_it.md)
+## C2. [Get the python module upstream source and cd into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_python_module_upstream_source_and_cd_into_it.md)
 
 LinacGUI project is in git.cells, so `git clone` command was used.
  
@@ -13,7 +13,7 @@ git clone https://git.cells.es/controls/LinacGUI.git
 cd LinacGUI
 ```
 
-C3. [Generate the debian source (with python setup.py sdist_dsc ... )](https://git.cells.es/ctpkg/documentation/blob/master/Generate_the_debian_source.md)
+## C3. [Generate the debian source (with python setup.py sdist_dsc ... )](https://git.cells.es/ctpkg/documentation/blob/master/Generate_the_debian_source.md)
 
 The linacgui debian sources were generated with:
 
@@ -37,7 +37,7 @@ for the autimatic generating of the man pages.
 This package was created from an untagged commit, so the upstream version 
 has to reflect it. It is done with `--upstream-version-suffix`. See [Appendix 3](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_3.md) if you have any doubt about how to compose it. 
 
-B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
+## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 
 The local gbp repository was created with:
 
@@ -45,11 +45,11 @@ The local gbp repository was created with:
 gbp import-dsc deb_dist/linacgui_2.70.0.post0+git20170314.1.8d4063-0~bpo9+0~alba+1.dsc \
               /packaging/linacgui_deb --pristine-tar
 cd /packaging/linacgui_deb
-# add a non-existing remote
+# add the remote (the remote itself will actually be created next)
 git remote add origin https://git.cells.es/ctpkg/linacgui_deb.git
 ```
  
-B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
 
 The following command was used to create the linacgui_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -59,35 +59,46 @@ create_ctpkg_project linacgui_deb "Repo for packaging LinacGUI on debian" \
                                   "application, GUI, Linac, python, mrosanes, cfalcon"
 ```
 
-B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
+## B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
 
-A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
 
 The debian files generated in the previous step are done for Python modules, that is not the case. So, several adaptations are needed. The most relevant changes will be described in this point.  You can see the linacgui initial commit, [here](https://git.cells.es/ctpkg/linacgui_deb/commit/ab83d2cecb94dc5a6cc9b0ee237ff58023ddd949#9c96da0e9f91d7d8937b69b524702c106258f0d1)
 
-* rules  files was modified to change the behavior of `dh_auto_install` . The GUI packages require to install in `/usr/share/linacgui` and not generate compiled files (`pyc`).  Both things have been done adding the `PYBUILD_INSTALL_ARGS` variable: `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/linacgui --no-compile`
+* [rules](https://git.cells.es/ctpkg/linacgui_deb/blob/c2de5857820c155d5c5168f009e6793b8f0cdf88/debian/rules)
+file was modified to change the behavior of `dh_auto_install` . 
+The GUI packages require to install in `/usr/share/linacgui` and not generate compiled files (`pyc`).
+Both things have been done adding the `PYBUILD_INSTALL_ARGS` variable: `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/linacgui --no-compile`
  
-* [copyright](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/copyright) is needed to past the lintian checking.
+* [copyright](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/copyright) is needed to pass the lintian checks.
 
-* [linacgui.install](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.install): was used to install files that have not been automatically installed (e.g. files under distribute upstream folder), and for relocating the launchers.
-
-The first two lines of this file are for renaming and relocating the `ctli` launcher. The launcher has to be moved because it needs to have access to linacgui python modules. The launcher is renamed to  avoid possible  collision with the module name.
+* [linacgui.install](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.install): 
+used to relocate launchers and for installing files would not be automatically installed (e.g. the files in the `distribute` upstream folder).
+The first two lines of this file are for renaming and relocating the `ctli` launcher. 
+The launcher has to be moved because it needs to import the linacgui python modules but these won't be in the PYTHONPATH. 
+The launcher is renamed to avoid a collision with the module name.
+Note that regular `.install` files do not allow renaming of files, but we do it 
+using the extended syntax provided by `dh-exec`
 ```
 1 #!/usr/bin/dh-exec 
 2 debian/linacgui/usr/bin/ctli => /usr/share/linacgui/ctli_ 
 ```
-The forth line is an example of how to install other files (not installed by dh_auto_install), in this case the `ctli.desktop` file.
-`4 distribute/ctli.desktop /usr/share/applications` 
+The fourth line is an example of how to install other files (not installed by dh_auto_install), in this case the `ctli.desktop` file.
+```
+4 distribute/ctli.desktop /usr/share/applications
+```
  
 > **Note :**
 > This file needs execution permissions. `chmod 777 debian/linacgui.install` 
 
-* [linacgui.links](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.links): Is used to create sym-links for the launchers in `/usr/bin`.
+* [linacgui.links](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.links): 
+Is used to create sym-links for the launchers in `/usr/bin`.
 
-* [linacgui.postinstall](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.postinstall): Is a shell script to generate the *.pyc files as post install action.
+* [linacgui.postinstall](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.postinstall): 
+Is used to generate the *.pyc files as post install action (it uses shell syntax).
 
-*  [linacgui.prerm](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.prerm): Is a shell script 
-to remove the generated `pyc` files before uninstall action.
+*  [linacgui.prerm](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui.prerm): 
+Is used to remove the generated `pyc` files before uninstall action (it uses shell syntax).
 
 * [watch](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/linacgui..prerm)
 **TODO** In the **future** this file should point to git.cells.es
@@ -102,19 +113,17 @@ These are the added files:
 And as the guide said, the rules and control file were modified, adding  `override_dh_clean` and `override_dh_installman` in the rules
 file and the build dependencies in the control file. You can see these changes in this [commit](https://git.cells.es/ctpkg/linacgui_deb/commit/61493f02e80c94c2161222ad0d9234248ec9847c).
 
-A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
+## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
 
-A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
+## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
 
 The following commands were executed.
-
 ```
 gbp dch --release --commit --since 497173e28
 gbp buildpackage
 ```
 
-And after check that the `gbp dch` did not introduce any lintian error.
-
+And after checking that the `gbp dch` did not introduce any lintian error.
 ```
 gbp buildpackage --git-tag-only 
 git push --all
@@ -122,7 +131,7 @@ git push --tags
 
 ```
 
-A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
+## A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
 
 -------------------------------------------------------------------------------
 
