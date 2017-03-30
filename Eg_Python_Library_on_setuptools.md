@@ -1,8 +1,8 @@
-Example: python library package using setuptools
-=========================================
+Exemplary package: python library package using setuptools (Fandango)
+=====================================================================
 
 
-For building fandango package Workflow C is followed:
+This was the followed workflow for creating the Fandango package:
 
 
 Build and run the debpack container:
