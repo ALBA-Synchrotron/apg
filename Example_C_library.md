@@ -1,20 +1,23 @@
-This was the followed workflow for creating the YAT packages:
+# Exemplary package: C library (YAT)
 
-D1 - [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+This was the workflow followed for creating the YAT packages:
 
-D2 - [Get the source tarball](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_source_tarball.md)
+## D1 - [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+
+## D2 - [Get the source tarball](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_source_tarball.md)
 
 YAT library is part of the TANGO project, it is hosted in sourceforge (svn). 
-The source tarball was get with these commands: 
+The source tarball was generated with these commands: 
 ```
 svn export https://svn.code.sf.net/p/tango-cs/code/share/yat/tags/YAT-1.11.1 yat-1.11.1
 tar -cvzf yat-1.11.1.tar.gz yat-1.11.1
 rm -rf yat-1.11.1
 ``` 
 
-D3 - [Create local packaging git repo with dh_make](https://git.cells.es/ctpkg/documentation/blob/master/Create_local_packaging_git_repo_with_dh_make.md)
+## D3 - [Create local packaging git repo with dh_make](https://git.cells.es/ctpkg/documentation/blob/master/Create_local_packaging_git_repo_with_dh_make.md)
 
 For creating the git repo using dh_make, these commands were executed:
+
 ```
 mkdir /packaging/yat-1.11.1
 cd /packaging/yat-1.11.1
@@ -23,7 +26,8 @@ gbp import-orig --pristine-tar -u 1.11.1 ../yat-1.11.1.tar.gz
 git remote add origin https://git.cells.es/ctpkg/yat_deb.git
 dh_make
 ```
-It is the dh_make output:
+
+And this is the dh_make output:
 
 ```
 > dh_make
@@ -47,10 +51,9 @@ Then we have to rename the previous folder:
 cd
 mv /packaging/yat-1.11.1 /packaging/yat_deb
 cd /packaging/yat_deb
-
 ```
 
-B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
 
 The following command was used to create the yat_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -60,16 +63,19 @@ create_ctpkg_project yat_deb "Repo for packaging YAT on debian" \
                                   "lib, c++, cfalcon"
 ```
 
-B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
+## B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
 
-A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
 
-The `dh_make` creates templates of most of the needed debian files. 
-In this step those files were edited, created or deleted.  You can see the changes in this [commit](https://git.cells.es/ctpkg/yat_deb/commit/f207d5be95517652c7c08dee61ba3579b7d8d174)
+The `dh_make` command generated templates of most of the needed debian files. 
+In this step some of those files were [edited or deleted, and a few ones were created](https://git.cells.es/ctpkg/yat_deb/commit/f207d5be95517652c7c08dee61ba3579b7d8d174)
 
-For building the project, the upstream has to be fixed. It was patched following this [guide](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.patches.html).
+This project generates two packages the `libyat1` and `libyat1-dev`.
+The build dependencies and descriptions had to be edited in the [control](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/control) 
 
-These commands were execute:
+For building the project, the upstream needed to be patched. It was patched 
+following this [guide](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.patches.html), 
+using the following commands:
 
 ```
 gbp pq import
@@ -81,9 +87,10 @@ git commit
 
 You can see the three patches, [here](https://git.cells.es/ctpkg/yat_deb/commit/620a07c65a2ee6ac1586b37757002f3bb35ffbb7).
 
-After patching the upstream, the debian files need to be edited.
+After patching the upstream, some debian files needed further edits:
 
-The main changes were in [rules](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/rules) file, where two override were needed for compiling the project: 
+- The main changes were in [rules](https://git.cells.es/ctpkg/yat_deb/blob/af8db84176b6ef279d8a949279386dfe9ebb064c/debian/rules) 
+file, where two overrides were needed for compiling the project: 
 
 ```
 override_dh_auto_configure:
@@ -94,15 +101,18 @@ override_dh_auto_build:
         make -C src
 ```
 
-And for avoiding these two lintian error:
-- I: libyat1: no-symbols-control-file usr/lib/x86_64-linux-gnu/libyat.so.1.0.0
-- E: libyat1: symbols-file-contains-current-version-with-debian-revision
+Then, for avoiding the following lintian errors,
+```
+I: libyat1: no-symbols-control-file usr/lib/x86_64-linux-gnu/libyat.so.1.0.0
+E: libyat1: symbols-file-contains-current-version-with-debian-revision
+```
 
 These overrides were added:
 
 ```
 override_dh_shlibdeps: 	
-    dpkg-gensymbols -plibyat1 -Odebian/libyat1.symbols -q 	sed -e "s:-[^-]*$::~:" -i debian/libyat1.symbols 	
+    dpkg-gensymbols -plibyat1 -Odebian/libyat1.symbols -q
+    sed -e "s:-[^-]*$::~:" -i debian/libyat1.symbols 	
     dh_makeshlibs 	
     dh_shlibdeps 
 
@@ -111,16 +121,16 @@ override_dh_clean:
 
 ```
 
-This project generate two packages the `libyat1` and `libyat1-dev`, in the [control](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/control)
-has been added the build dependencies and proper descriptions. The [libyat-dev.install](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/libyat-dev.install),
-[copyright](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/copyright), and the [watch](https://git.cells.es/ctpkg/yat_deb/blob/master/debian/watch) 
+The [libyat-dev.install](https://git.cells.es/ctpkg/yat_deb/blob/af8db84176b6ef279d8a949279386dfe9ebb064c/debian/libyat-dev.install),
+[copyright](https://git.cells.es/ctpkg/yat_deb/blob/af8db84176b6ef279d8a949279386dfe9ebb064c/debian/copyright), 
+and the [watch](https://git.cells.es/ctpkg/yat_deb/blob/af8db84176b6ef279d8a949279386dfe9ebb064c/debian/watch) 
 have been modified to fill/fix the generated template.
 
 
-A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
+## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
 
 
-A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
+## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
 
 The following commands were executed.
 
@@ -138,6 +148,6 @@ git push --tags
 
 ```
 
-A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
+## A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
 
 ------------------------------
