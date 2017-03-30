@@ -4,6 +4,10 @@ Exemplary package: python library package using setuptools (Fandango)
 
 This was the followed workflow for creating the Fandango package:
 
+## C1. [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+
+## C2. [Get the python module upstream source and cd into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_python_module_upstream_source_and_cd_into_it.md)
+
 
 Build and run the debpack container:
 <pre>
