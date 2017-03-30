@@ -37,14 +37,20 @@ The fandango debian sources were generated with:
 cd fandango
 
 python setup.py --command-packages=stdeb.command sdist_dsc \
-                --debian-version 0~bpo9+0~alba+1 --suite stretch-backports \
-                --build-depends "help2man"
-                --depends 'python-tango, python-taurus'
+                --upstream-version-suffix +git20170317.1.5a7706 \
+                --debian-version 0~bpo9+0~alba+1
+                --build-depends "help2man" \
+                --depends 'python-tango, python-taurus' \
+                --suite stretch-backports
 ```
 
 Fandango depedends on Taurus and PyTango libraries.
 
-
+help2man is required for the automatic generation of the man pages:
+It can be installed with: 
+```
+apt-get install help2man
+```
 
 
 ## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
@@ -80,25 +86,9 @@ git push --tags
 
 Add and/or modify copyright, control and rules file.
 
-Also a python-fandango.lintian-overrides file has to be added inside the folder
-/packaging/fandango_deb/debian if we have to bypass some lintian error. This 
-file indicates which warnings will be overriden by lintian. 
-Remember that the directive is to try to solve as many of the reported lintian 
-errors as possible (overriding the lintian errors shall be the exception, not
-the norm).
-In our case, we have added: **manpage-has-errors-from-man** to the file 
-python-fandango.lintian-overrides.
-
-
 
 * [rules](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/rules)
 file has been modified to allow the manpage creation.
-
-Other files that had to be added in fandango package in order to create the 
-manpages are:
-fandango_deb/debian/manpages
-fandango_deb/debian/help2man
-
 
 * [copyright](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/copyright) is needed to pass the lintian checks.
 
@@ -107,6 +97,25 @@ has been modified, to fix formatting issues.
 
 * [watch](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/watch)
 **TODO** In the **future** this file should point to github fandango location.
+
+* [compat](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/compat)
+
+Other files that had to be added in fandango package in order to create the 
+manpages are:
+
+* [manpages](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/manpages)
+* [help2man](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/help2man)
+
+* [python-fandango.lintian-overrides](https://git.cells.es/ctpkg/fandango_deb/blob/master/debian/python-fandango.lintian-overrides)
+A python-fandango.lintian-overrides file has to be added inside the folder
+/packaging/fandango_deb/debian if we have to bypass some lintian error. This 
+file indicates which warnings will be overriden by lintian. 
+Remember that the directive is to try to solve as many of the reported lintian 
+errors as possible (overriding the lintian errors shall be the exception, not
+the norm).
+In our case, we have added: **manpage-has-errors-from-man** to the file 
+python-fandango.lintian-overrides. This allows to override some errors reported
+about the manpages format.
 
 
 ## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
@@ -133,7 +142,7 @@ file, as indicated above.
 
 Next, update changelog using:
 ```
-gbp dch --release --commit --since <commithash>
+gbp dch --release --commit --since 306fc343
 ```
 
 Perform a final test with:
