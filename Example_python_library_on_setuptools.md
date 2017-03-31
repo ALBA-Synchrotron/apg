@@ -1,6 +1,4 @@
-Exemplary package: python library package using setuptools (Fandango)
-=====================================================================
-
+# Exemplary package: python library package using setuptools (Fandango)
 
 This was the followed workflow for creating the Fandango package:
 
@@ -47,10 +45,6 @@ python setup.py --command-packages=stdeb.command sdist_dsc \
 Fandango depedends on Taurus and PyTango libraries.
 
 help2man is required for the automatic generation of the man pages:
-It can be installed with: 
-```
-apt-get install help2man
-```
 
 
 ## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
