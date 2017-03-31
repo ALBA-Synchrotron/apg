@@ -78,13 +78,17 @@ git push --tags
 
 ## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
 
-Add and/or modify copyright, control and rules file.
+The use of the `python setup.py --command-packages=stdeb.command sdist_dsc (...)` 
+command before generated a debian dir with some files that were "almost" right,
+but some customizations were required (in an iterative process) to pass the 
+lintian checks
 
 
 * [rules](https://git.cells.es/ctpkg/fandango_deb/blob/49646d06be99ff67379da9c73ae6496885ecdb25/debian/rules)
-file has been modified to allow the manpage creation.
+file has been modified to auto-generate manpages.
 
-* [copyright](https://git.cells.es/ctpkg/fandango_deb/blob/49646d06be99ff67379da9c73ae6496885ecdb25/debian/copyright) is needed to pass the lintian checks.
+* [copyright](https://git.cells.es/ctpkg/fandango_deb/blob/49646d06be99ff67379da9c73ae6496885ecdb25/debian/copyright) 
+is needed to pass the lintian checks.
 
 * [control](https://git.cells.es/ctpkg/fandango_deb/commit/cd57a8013f1c97393db1ec1c5dfe625a9b880657) file
 has been modified, to fix formatting issues.
@@ -101,15 +105,12 @@ manpages are:
 * [help2man](https://git.cells.es/ctpkg/fandango_deb/blob/49646d06be99ff67379da9c73ae6496885ecdb25/debian/help2man)
 
 * [python-fandango.lintian-overrides](https://git.cells.es/ctpkg/fandango_deb/blob/49646d06be99ff67379da9c73ae6496885ecdb25/debian/python-fandango.lintian-overrides)
-A python-fandango.lintian-overrides file has to be added inside the folder
-/packaging/fandango_deb/debian if we have to bypass some lintian error. This 
-file indicates which warnings will be overriden by lintian. 
-Remember that the directive is to try to solve as many of the reported lintian 
-errors as possible (overriding the lintian errors shall be the exception, not
-the norm).
-In our case, we have added: **manpage-has-errors-from-man** to the file 
-python-fandango.lintian-overrides. This allows to override some errors reported
-about the manpages format.
+A python-fandango.lintian-overrides file had to be added to bypass some format 
+errors in the man pages that are generated from the "--help" command of the 
+upstream scripts.
+This was reported to upstream and is considered a workaround until upstream 
+fixes it, rather than a proper solution ( overriding the lintian errors shall be
+the exception, not the norm)
 
 
 ## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
@@ -120,16 +121,15 @@ Before testing the build, it is a good idea to update cowbuilder by using:
 cowbuilder --update
 ```
 
-For testing the build, adding and/or fixing debian files (rules, control, copyright) 
-according to lintian an piupart quality check, run iteratively 
-```
-gbp buildpackage
-```
-from inside the /packaging/fandango_deb folder, correct files, and run again the command,
-till you are satisfied: no more error or warnings from lintian appears. If some
-of the warnings has to be bypassed, indicate it in python-fandango.lintian-overrides
-file, as indicated above.
+For testing the build, several iterations of debugging were needed where:
 
+- One runs `gbp buildpackage`
+- Checks the output of the build, paying attention to lintian and piuparts checks
+- Edits the files in `/packaging/fandango_deb/debian` and/or contacts upstream to
+  do changes in `/packaging/fandango_deb`
+- For the  **trully** unavoidable checks that need be bypassed (in this case, 
+  man pages format errors, that depend on upstream for fix), upstream is notified
+  and a lintian-override created.
 
 
 ## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
