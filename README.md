@@ -29,13 +29,13 @@ When packaging for ALBA, you will likely be in one of the following cases :
 
 ### Workflow A - Maintaining an existing alba package (i.e. for which a packaging git repo exists):
 
-1 - [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
-2 - Clone the packaging repo from git.cells.es/ctpkg/<name>
-3 - Update upstream if needed
-4 - Edit the Debian Folder Files as needed
-5 - Test the package building
-6 - Update changelog, build the package, tag it, and push
-7 - Upload artifacts to ALBA repo
+1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
+2. [Clone the packaging repo](recipe.Clone_the_packaging_repo.md)
+3. [Update upstream](recipe.Update_upstream.md)
+4. [Edit the Debian Files](recipe.Edit_debian_files.md)
+5. [Build package](recipe.Build_package.md)
+6. [Update Changelog and tag](recipe.Update_changelog_and_tag.md)
+7. [Upload artifacts](recipe.Upload_artifacts.md)
 
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
