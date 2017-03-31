@@ -51,13 +51,13 @@ create_ctpkg_project pylinkam_deb "Repo for packaging PyLinkam DS on debian" \
 
 This [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/7825d24acc9d9c98d451cea26a1231f69352278b) does
 the necesary changes to build the project.
-* [control](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/control). Was modified to edit the descriptions.
-* [copyright](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/copyright). Add a basic copyright file.
-* [tangods-pylinkam.install](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/tangods-pylinkam.install) This file renames the launcher.
-* [tangods-pylinkam.links](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/tangods-pylinkam.links) 
+* [control](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/control). Was modified to edit the descriptions.
+* [copyright](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/copyright). Add a basic copyright file.
+* [tangods-pylinkam.install](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.install) This file renames the launcher.
+* [tangods-pylinkam.links](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.links) 
 This files is using to create a sym-links
 in `/usr/lib/tango` following the [Appendix 1](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_1.md) convention.
-* [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/rules). This file
+* [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/rules). This file
 was modified to set the proper configuration of `dh_auto_install` for this kind of projects.
 This export was added:
 `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/tangods-pylinkam --no-compile `
@@ -96,9 +96,9 @@ override_dh_clean:
 override_dh_installman: $(MANS)
 	dh_installman
 ``` 
-Moreover these files were added to the debian folder: [help2man](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/help2man),
-[tangods-pylinkam.manpages](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/tangods-pylinkam.manpages), and 
-[tangods-pylinkam.lintian-overrides](https://git.cells.es/ctpkg/pylinkam_deb/blob/master/debian/tangods-pylinkam.lintian-overrides)
+Moreover these files were added to the debian folder: [help2man](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/help2man),
+[tangods-pylinkam.manpages](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.manpages), and 
+[tangods-pylinkam.lintian-overrides](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.lintian-overrides)
 The 'tangods-pylinkam.lintian-overrides' has been added to avoid this warning: 
 `W: tangods-pylinkam: manpage-has-errors-from-man usr/share/man/man1/PyLinkam.1.gz 28: warning [p 1, 6.2i]: cannot adjust line`
 The generated man page does not pass all the quality lintian test, the source maintainer is the responsible for fix it. 
