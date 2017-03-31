@@ -55,25 +55,29 @@ the necesary changes to build the project.
 * [copyright](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/copyright). Add a basic copyright file.
 * [tangods-pylinkam.install](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.install) This file renames the launcher.
 * [tangods-pylinkam.links](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.links) 
-This files is using to create a sym-links
+This file is used to create a sym-link for the DS launcher
 in `/usr/lib/tango` following the [Appendix 1](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_1.md) convention.
-* [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/rules). This file
-was modified to set the proper configuration of `dh_auto_install` for this kind of projects.
-This export was added:
-`export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/tangods-pylinkam --no-compile `
+* [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/rules). 
+Since this is for a DS package, the python module should not be installed in the
+default python path but in `/usr/share/tangods-pylinkam`. The rules file was 
+modified to set the proper configuration of `dh_auto_install` accordingly by adding:
+`export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/tangods-pylinkam --no-compile `.
+Other modifications to the rules file were done later on to fix errors reported 
+by lintian (see next step)
 
-Even though lintian does not trigger any warning, is a good practise to add `postinstall` and `prerm`
-scripts, as you can see in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/efbabe36189ffd8e59be90ca3c3fcd2a01169837).
-These script are in charge of maintenaince clean the system.
+Even though lintian does not trigger any warning, it is a good practice to add 
+`postinstall` and `prerm` scripts, as you can see in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/efbabe36189ffd8e59be90ca3c3fcd2a01169837).
+These script are in charge of cleaning the system.
 
 ## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
 
-During the building test (using `gbp buildpackage`) some lintian warnings appear.
+During the building tests (using `gbp buildpackage`) some lintian warnings appeared.
 ```
 W: tangods-pylinkam: executable-not-elf-or-script usr/share/tangods-pylinkam/PyLinkam/THMS_600.pump
 W: tangods-pylinkam: executable-not-elf-or-script usr/share/tangods-pylinkam/PyLinkam/VERSION
 ```
-These lintian warnings were fixed adding an `override_dh_fixperms` in the rules file in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/9aade0ce7f718b4041a96a916566fc07ce42a6ce).
+These lintian warnings were fixed adding an `override_dh_fixperms` in the rules 
+file in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/9aade0ce7f718b4041a96a916566fc07ce42a6ce).
 ```
 override_dh_fixperms:
 	chmod 0644 debian/tangods-pylinkam/usr/share/tangods-pylinkam/PyLinkam/THMS_600.pump
@@ -96,12 +100,18 @@ override_dh_clean:
 override_dh_installman: $(MANS)
 	dh_installman
 ``` 
-Moreover these files were added to the debian folder: [help2man](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/help2man),
-[tangods-pylinkam.manpages](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.manpages), and 
-[tangods-pylinkam.lintian-overrides](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.lintian-overrides)
+
+Also, the following files were added to the debian folder: 
+- [help2man](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/help2man),
+- [tangods-pylinkam.manpages](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.manpages)
+- [tangods-pylinkam.lintian-overrides](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.lintian-overrides)
+
 The 'tangods-pylinkam.lintian-overrides' has been added to avoid this warning: 
 `W: tangods-pylinkam: manpage-has-errors-from-man usr/share/man/man1/PyLinkam.1.gz 28: warning [p 1, 6.2i]: cannot adjust line`
-The generated man page does not pass all the quality lintian test, the source maintainer is the responsible for fix it. 
+This is an error in the man pages that are generated from the "--help" command 
+of the upstream scripts. This was reported to upstream and is considered a 
+workaround until upstream fixes it, rather than a proper solution ( overriding 
+the lintian errors shall be the exception, not the norm)
 
 ## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
 
@@ -112,7 +122,8 @@ gbp dch --release --commit --since 812dcf7
 gbp buildpackage
 ```
 
-And after check that the `gbp dch` did not introduce any lintian error.
+And after checking that the `gbp dch` did not introduce any new lintian error, 
+it was pushed with:
 
 ```
 gbp buildpackage --git-tag-only 
