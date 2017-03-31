@@ -9,3 +9,8 @@ Apply a final test by running:
 
 If problems are found with the changelog after this build, review the
 changelog and run again `gbp buildpackage`.
+
+When everything is correct, build the final package and tag it with: 
+`gbp buildpackage --git-tag`.
+
+Finally you should push your changes. See [Push to the remote git repo ](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
