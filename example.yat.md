@@ -127,10 +127,10 @@ and the [watch](https://git.cells.es/ctpkg/yat_deb/blob/af8db84176b6ef279d8a9492
 have been modified to fill/fix the generated template.
 
 
-## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
+## A5. [Build package](recipe.Build_package.md)
 
 
-## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
+## A6. [Update Changelog and tag](recipe.Update_changelog_and_tag.md)
 
 The following commands were executed.
 
@@ -148,6 +148,6 @@ git push --tags
 
 ```
 
-## A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
+## A7. [Upload artifacts](recipe.Upload_artifacts.md)
 
 ------------------------------

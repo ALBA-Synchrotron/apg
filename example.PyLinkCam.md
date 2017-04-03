@@ -69,7 +69,7 @@ Even though lintian does not trigger any warning, it is a good practice to add
 `postinstall` and `prerm` scripts, as you can see in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/efbabe36189ffd8e59be90ca3c3fcd2a01169837).
 These script are in charge of cleaning the system.
 
-## A5. [Test the package building](https://git.cells.es/ctpkg/documentation/blob/master/Test_the_package_building.md)
+## A5. [Build package](recipe.Build_package.md)
 
 During the building tests (using `gbp buildpackage`) some lintian warnings appeared.
 ```
@@ -113,7 +113,7 @@ of the upstream scripts. This was reported to upstream and is considered a
 workaround until upstream fixes it, rather than a proper solution ( overriding 
 the lintian errors shall be the exception, not the norm)
 
-## A6. [Update changelog, build the package, tag it, and push](https://git.cells.es/ctpkg/documentation/blob/master/Update_changelog_build_the_package_tag_it_and_push.md)
+## A6. [Update Changelog and tag](recipe.Update_changelog_and_tag.md)
 
 The following commands were executed.
 
@@ -132,4 +132,4 @@ git push --tags
 
 ```
 
-## A7. [Upload_artifacts_to_ALBA_repo](https://git.cells.es/ctpkg/documentation/blob/master/Upload_artifacts_to_ALBA_repo.md)
+## A7. [Upload artifacts](recipe.Upload_artifacts.md)
