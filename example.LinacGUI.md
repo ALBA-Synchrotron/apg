@@ -2,9 +2,9 @@
 
 This was the followed workflow for creating the linacgui package:
 
-## C1. [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+## C1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 
-## C2. [Get the python module upstream source and cd into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_python_module_upstream_source_and_cd_into_it.md)
+## C2. [Get the python module upstream source and cd into it](recipe.Get_the_python_module_upstream_source.md)
 
 LinacGUI project is in git.cells, so `git clone` command was used.
  
@@ -13,7 +13,7 @@ git clone https://git.cells.es/controls/LinacGUI.git
 cd LinacGUI
 ```
 
-## C3. [Generate the debian source (with python setup.py sdist_dsc ... )](https://git.cells.es/ctpkg/documentation/blob/master/Generate_the_debian_source.md)
+## C3. [Generate the debian source with setuptools](recipe.Generate_the_debian_source_with_setuptools.md)
 
 The linacgui debian sources were generated with:
 
@@ -27,7 +27,7 @@ python setup.py --command-packages=stdeb.command sdist_dsc \
 
 ```
 
-LinacGUI depedends on Taurus and PyTango libraries and requieres Taurus at building 
+LinacGUI depends on Taurus and PyTango libraries and requieres Taurus at building 
 time.
 
 As this packages has to be installed in `/usr/share` it requires `dh-exec` 

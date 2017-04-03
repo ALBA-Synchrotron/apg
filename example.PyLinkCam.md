@@ -2,9 +2,9 @@
 
 This was the followed workflow for creating the pylinkam DS package:
 
-## C1. [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+## C1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 
-## C2. [Get the python module upstream source and cd into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_python_module_upstream_source_and_cd_into_it.md)
+## C2. [Get the python module upstream source and cd into it](recipe.Get_the_python_module_upstream_source.md)
 
 PyLinkam DS is a SVN project hosted in sourceforge. The upstream was gotten
 with this command:
@@ -12,7 +12,7 @@ with this command:
 svn co http://svn.code.sf.net/p/tango-ds/code/DeviceClasses/SampleEnvironment/PyLinkam/trunk PyLinkam
 ```
 
-## C3 - Generate the debian source (with python setup.py sdist_dsc ... ) 
+## C3. [Generate the debian source with setuptools](recipe.Generate_the_debian_source_with_setuptools.md)
 
 PyLinkam project is based on `setuptools`, so the debian source were
 generated with the followed command:

@@ -39,8 +39,8 @@ When packaging for ALBA, you will likely be in one of the following cases :
 
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
-1 - Get a debpack:alba docker container running and log into it
-2 - Download the debian source package
+1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
+2- Download the debian source package
 3 - Create the local gbp repo with `gbp import-dsc`
 4 - Create the remote git repo
 5 - Push to the remote git repo 
@@ -48,14 +48,14 @@ When packaging for ALBA, you will likely be in one of the following cases :
 
 ### Workflow C - Packaging a setuptools-based python code for which no alba or debian package already exist.
 
-1 - Get a debpack:alba docker container running and log into it
-2 - Get the python module upstream source and cd into it
-3 - Generate the debian source (with python setup.py sdist_dsc ... ) 
+1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
+2. [Get the python module upstream source and cd into it](recipe.Get_the_python_module_upstream_source.md)
+3. [Generate the debian source with setuptools](recipe.Generate_the_debian_source_with_setuptools.md)
 4 - Proceed as in Workflow B-3 and next
 
 ### Workflow D - Packaging non-setuptools based code (e.g. C++ code) for which no alba or debian package already exist.
 
-1 - Get a debpack:alba docker container running and log into it
+1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 2 - Get the source tarball
 3 - Create local packaging git repo with dh_make
 4 - Proceed as in Workflow B-4 and next

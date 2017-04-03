@@ -2,7 +2,7 @@
 
 This was the workflow followed for creating the YAT packages:
 
-## D1 - [Get a debpack:alba docker container running and log into it](https://git.cells.es/ctpkg/documentation/blob/master/Get_a_debpack_alba_docker_container_running_and_log_into_it.md)
+## D1 - [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 
 ## D2 - [Get the source tarball](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_source_tarball.md)
 
