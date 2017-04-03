@@ -1,4 +1,4 @@
-# Auto-generation of man pages (base on help2man)
+# Auto-generation of man pages (using help2man)
 
 This recipe shows how to auto-generate man pages for applications base on help2man. This process requires modify and create files in the debian folder.
 
