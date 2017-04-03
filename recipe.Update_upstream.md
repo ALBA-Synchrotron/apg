@@ -8,17 +8,17 @@ If you are updating an existing package with a new upstream version, you should 
 - If upstream uses git, it should be possible to [point the
 `upstream` branch of the packaging repo to the upstream repo]
 (https://wiki.debian.org/PackagingWithGit#Using_the_upstream_repo-1). 
-Note: we haven’t yet validated this workflow at ALBA.
+Note: we haven???t yet validated this workflow at ALBA.
 - If the package provides a working [`debian/watch` file]
 (https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch),
 it should be possible to use `gbp import-orig --uscan`.
-Note: we haven’t yet validated this workflow at ALBA.
+Note: we haven???t yet validated this workflow at ALBA.
 - If the above methods are not ok for you, you can always fall back to
-using a tarball from upstream (See Appendix 5) and issuing 
+using a tarball from upstream (See [Appendix 5](Appendix_5.md)) and issuing 
 `gbp import-orig <path/to/tarball> -u <UPSTREAM> --pristine-tar`. 
 Keep in mind the following notes:
 
-  - See Appendix 3 for details about what goes in the `<UPSTREAM>` 
+  - See [Appendix 3](Appendix_3.md) for details about what goes in the `<UPSTREAM>` 
   version string. 
   - See more details on `gbp import-orig` [here]
 (http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.import.html#GBP.IMPORT.NEW.UPSTREAM). 

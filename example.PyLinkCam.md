@@ -56,7 +56,7 @@ the necesary changes to build the project.
 * [tangods-pylinkam.install](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.install) This file renames the launcher.
 * [tangods-pylinkam.links](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.links) 
 This file is used to create a sym-link for the DS launcher
-in `/usr/lib/tango` following the [Appendix 1](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_1.md) convention.
+in `/usr/lib/tango` following the [Appendix 1](Appendix_1.md) convention.
 * [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/rules). 
 Since this is for a DS package, the python module should not be installed in the
 default python path but in `/usr/share/tangods-pylinkam`. The rules file was 

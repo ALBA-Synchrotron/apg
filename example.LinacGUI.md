@@ -35,7 +35,8 @@ package as build-dep and `help2man` is required  as build-dep
 for the autimatic generating of the man pages.
 
 This package was created from an untagged commit, so the upstream version 
-has to reflect it. It is done with `--upstream-version-suffix`. See [Appendix 3](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_3.md) if you have any doubt about how to compose it. 
+has to reflect it. It is done with `--upstream-version-suffix`. See [Appendix 3](Appendix_3.md) 
+if you have any doubt about how to compose it. 
 
 ## B3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 

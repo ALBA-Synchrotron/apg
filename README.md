@@ -40,7 +40,7 @@ When packaging for ALBA, you will likely be in one of the following cases :
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
 1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
-2- Download the debian source package
+2. [Download the debian source package](recipe.Download_a_Debian_source_package.md)
 3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
