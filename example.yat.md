@@ -4,7 +4,7 @@ This was the workflow followed for creating the YAT packages:
 
 ## D1 - [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 
-## D2 - [Get the source tarball](https://git.cells.es/ctpkg/documentation/blob/master/Get_the_source_tarball.md)
+## D2 - [Get the source tarball](recipe.Get_the_source_tarball.md)
 
 YAT library is part of the TANGO project, it is hosted in sourceforge (svn). 
 The source tarball was generated with these commands: 
@@ -14,7 +14,7 @@ tar -cvzf yat-1.11.1.tar.gz yat-1.11.1
 rm -rf yat-1.11.1
 ``` 
 
-## D3 - [Create local packaging git repo with dh_make](https://git.cells.es/ctpkg/documentation/blob/master/Create_local_packaging_git_repo_with_dh_make.md)
+## D3 - [Create local packaging git repo with dh_make](recipe.Create_local_packaging_git_repo_with_dh_make.md)
 
 For creating the git repo using dh_make, these commands were executed:
 
@@ -53,7 +53,7 @@ mv /packaging/yat-1.11.1 /packaging/yat_deb
 cd /packaging/yat_deb
 ```
 
-## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 
 The following command was used to create the yat_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -65,7 +65,7 @@ create_ctpkg_project yat_deb "Repo for packaging YAT on debian" \
 
 ## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 
-## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 The `dh_make` command generated templates of most of the needed debian files. 
 In this step some of those files were [edited or deleted, and a few ones were created](https://git.cells.es/ctpkg/yat_deb/commit/f207d5be95517652c7c08dee61ba3579b7d8d174)

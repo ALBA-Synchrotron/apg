@@ -25,7 +25,7 @@ python setup.py --command-packages=stdeb.command sdist_dsc \
                 --depends 'python-tango, python-numpy'
 ``` 
 
-## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo.md)
+## B3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 
 The local gbp repo was created with these commands:
 
@@ -35,7 +35,7 @@ cd /packaging/pylinkam_deb
 git remote add origin https://git.cells.es/ctpkg/pylinkam_deb.git
 ```
 
-## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 
 The following command was used to create the pylinkam_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -47,7 +47,7 @@ create_ctpkg_project pylinkam_deb "Repo for packaging PyLinkam DS on debian" \
 
 ## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 
-## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 This [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/7825d24acc9d9c98d451cea26a1231f69352278b) does
 the necesary changes to build the project.

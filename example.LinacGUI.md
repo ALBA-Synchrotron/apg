@@ -37,7 +37,7 @@ for the autimatic generating of the man pages.
 This package was created from an untagged commit, so the upstream version 
 has to reflect it. It is done with `--upstream-version-suffix`. See [Appendix 3](https://git.cells.es/ctpkg/documentation/blob/master/Appendix_3.md) if you have any doubt about how to compose it. 
 
-## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
+## B3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 
 The local gbp repository was created with:
 
@@ -49,7 +49,7 @@ cd /packaging/linacgui_deb
 git remote add origin https://git.cells.es/ctpkg/linacgui_deb.git
 ```
  
-## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 
 The following command was used to create the linacgui_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -61,7 +61,7 @@ create_ctpkg_project linacgui_deb "Repo for packaging LinacGUI on debian" \
 
 ## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 
-## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 In a previous step, debian files were auto-generated (you can see the 
 [original commit](https://git.cells.es/ctpkg/linacgui_deb/commit/ab83d2cecb94dc5a6cc9b0ee237ff58023ddd949#9c96da0e9f91d7d8937b69b524702c106258f0d1),

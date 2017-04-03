@@ -47,7 +47,7 @@ Fandango depedends on Taurus and PyTango libraries.
 help2man is required for the automatic generation of the man pages:
 
 
-## B3. [Create the local gbp repo with `gbp import-dsc`](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_local_gbp_repo_with_gbp_import-dsc.md)
+## B3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 
 The local gbp repository was created with:
 
@@ -59,7 +59,7 @@ cd /packaging/fandango_deb/
 git remote add origin https://git.cells.es/ctpkg/fandango_deb.git
 ```
 
-## B4. [Create the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Create_the_remote_git_repo.md)
+## B4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 
 The following command was used to create the fandango_deb repository in 
 `ctpkg` group of `git.cells` 
@@ -76,7 +76,7 @@ git push --tags
 ```
 
 
-## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
+## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 The use of the `python setup.py --command-packages=stdeb.command sdist_dsc (...)` 
 command before generated a debian dir with some files that were "almost" right,

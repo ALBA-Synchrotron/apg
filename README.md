@@ -41,8 +41,8 @@ When packaging for ALBA, you will likely be in one of the following cases :
 
 1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
 2- Download the debian source package
-3 - Create the local gbp repo with `gbp import-dsc`
-4 - Create the remote git repo
+3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
+4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
 5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 6 - Proceed as in Workflow A-4 and next
 
@@ -56,6 +56,6 @@ When packaging for ALBA, you will likely be in one of the following cases :
 ### Workflow D - Packaging non-setuptools based code (e.g. C++ code) for which no alba or debian package already exist.
 
 1. [Get the debpack Docker](recipe.Get_the_debpack_Docker.md)
-2 - Get the source tarball
-3 - Create local packaging git repo with dh_make
+2 - [Get the source tarball](recipe.Get_the_source_tarball.md)
+3 - [Create local packaging git repo with dh_make](recipe.Create_local_packaging_git_repo_with_dh_make.md)
 4 - Proceed as in Workflow B-4 and next
