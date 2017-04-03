@@ -1,4 +1,4 @@
-# Appendix 2. Reference packages by type
+# Appendix 2. Reference packages
 
 - Python Device Server: [PyLinkCam](example.PyLinkCam.md)
 - C++ Device Server: 
