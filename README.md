@@ -43,7 +43,7 @@ When packaging for ALBA, you will likely be in one of the following cases :
 2- Download the debian source package
 3 - Create the local gbp repo with `gbp import-dsc`
 4 - Create the remote git repo
-5 - Push to the remote git repo 
+5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 6 - Proceed as in Workflow A-4 and next
 
 ### Workflow C - Packaging a setuptools-based python code for which no alba or debian package already exist.

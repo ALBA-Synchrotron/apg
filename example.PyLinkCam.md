@@ -45,7 +45,7 @@ create_ctpkg_project pylinkam_deb "Repo for packaging PyLinkam DS on debian" \
                                   "DS, python, cfalcon"
 ```
 
-## B5. [Push to the remote git repo](https://git.cells.es/ctpkg/documentation/blob/master/Push_to_the_remote_git_repo.md)
+## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 
 ## A4. [Edit the Debian Folder Files as needed](https://git.cells.es/ctpkg/documentation/blob/master/Edit_the_Debian_Folder_Files_as_needed.md)
 
