@@ -1,6 +1,8 @@
 # Edit the Debian Folder Files as needed
 
-This is the most complex step (especially when you are creating the package for the first time). We recommend using a *reference package* from the list in Appendix  2. The `debian` folder must contain at least the following files (for a deeper understanding of their purpose and syntax, follow the provided links to the maint-guide): 
+This is the most complex step (especially when you are creating the package for the first time). 
+We recommend using a [reference package from the Appendix  2](Appendix_2.md). 
+The `debian` folder must contain at least the following files (for a deeper understanding of their purpose and syntax, follow the provided links to the maint-guide): 
  - [control](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control): this file contains basic info about the package (descriptions, dependencies, classification, etc.). It also defines which binary packages will be created from this debian source package. For our packages is mandatory to set the latest ancient-standards-version (**current 3.9.8**).
 
  - [copyright](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#copyright): this file lists which license applies to each file in the package (both upstream and debian files). Non dfsg (dfsg standing for Debian Free Software Guidelines) code files should be listed here.
