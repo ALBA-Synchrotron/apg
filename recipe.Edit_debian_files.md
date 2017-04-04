@@ -48,9 +48,6 @@ makefile.
 Notes:
 
 - Deciding the right place for installing a given file is one of the most common
-sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md), 
-and the Debian Policy Manual (e.g., the [Files section](https://www.debian.org/doc/debian-policy/ch-files.html)). 
-Also, understanding the [Filesystem Hierarchy Standard](https://www.debian.org/doc/packaging-manuals/fhs/fhs-2.3.html#THEROOTFILESYSTEM) 
-may be useful.
+sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md).
 
 - You may also be interested in reading [how to auto-generate man pages](https://git.cells.es/ctpkg/documentation/blob/master/Auto_generation_of_man_pages.md)
