@@ -29,4 +29,13 @@ repos. Instead, once your package builds fine outside the chroot, do *at least*
 [one build the standard way](recipe.Build_package.md) and pay attention to any 
 errors, including those from lintian and piuparts
 
+## Use Lintian Overrides
 
+Lintian-overrides are a mean to **avoid false possitives** from lintian. Not a 
+way of  neglecting to fix a lintian error.
+
+That said, sometimes the problem is upstream and as a packager you cannot do 
+much but to report the problem upstream and add a lintian override.
+
+In such case, please document the override and inform the upstream in order to 
+have it fixed.
