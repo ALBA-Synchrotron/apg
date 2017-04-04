@@ -9,14 +9,16 @@ doing the things the right way will save time in the longer term.
 ## Build outside the chroot
 
 Fixing the errors during build may be desperating.
-Often you edit e.g. debian/rules to fix some lintian warning and when you 
-re-build the warning is replaced by 3 more warnings and 2 errors...
+Often you edita file to fix some lintian warning and when you 
+re-build your warning dissapeared only to be replaced by 3 new warnings and 2 
+errors...
 
 And what makes it more frustrating is that the fact of using a clean environment
 every time makes the build too slow (specially if your package needs to install 
 a lot of build-dependencies).
 
-One thing you can do is to do the coarse debugging outside the chroot:
+One thing you can do is to do the coarse debugging of the build outside the 
+chroot:
 - first install the build-depends in the docker with apt-get 
 - then use `pdbuild` to build the package
 - maybe [run lintian manually](recipe.Manually_run_quality_checks.md)
