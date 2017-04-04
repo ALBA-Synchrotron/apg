@@ -31,5 +31,5 @@ The **Debian Policy** manual should clarify how to solve most issues reported by
 the quality checking tools. Note that you can also [run the quality checkers 
 manually](recipe.Manually_run_quality_checks.md).
 
-- If you are stuck with problems during the build, you may read [this]('recipe.Build_shortcuts.md') 
+- If you are stuck with problems during the build, you may read [this](recipe.Build_shortcuts.md) 
 (at your own risk!)
