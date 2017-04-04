@@ -13,13 +13,14 @@ sources for **generic Debian** packaging:
 But still, those docs offer too much choice, so we wrote this *ALBA Packaging 
 Guide* to describe the specific workflows and tools that have been chosen for 
 packaging for ALBA.
-If some instruction in this document contradicts what you read in a more generic
-document, please contact someone from ctgensoft to check if this is a mistake on
-our procedures or a deliberate choice.
 
-Also, a set of practical examples have been documented. These are intended as 
-very specific implementation examples of the *ALBA Packaging Guide* workflows, 
-and should be used **together with the guide**.
+If some instruction in this document contradicts what you read in a more generic
+document, please contact someone from CTGenSoft to check if this is a mistake on
+our procedures or a deliberate choice (also see the [CONTRIBUTING guide](CONTRIBUTING.md))
+
+Also, a set of [practical examples](Appendix_2.md) have been documented. These 
+are intended as very specific implementation examples of the *ALBA Packaging 
+Guide* workflows, and should be used **together with the guide**.
 
 
 ## Workflows
