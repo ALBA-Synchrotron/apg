@@ -22,6 +22,10 @@ Also, a set of [practical examples](Appendix_2.md) have been documented. These
 are intended as very specific implementation examples of the *ALBA Packaging 
 Guide* workflows, and should be used **together with the guide**.
 
+Note: in this guide we will use terms such as *upstream*, or 
+*backport*, etc that have some specific meaning in the context of packaging. 
+See the [glossary](Glossary.md) for definitions
+
 
 ## Workflows
 
