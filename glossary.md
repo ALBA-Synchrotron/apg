@@ -7,10 +7,10 @@ be used in this guide.
 refers to the original author/maintainer of the code (or the original code 
 itself).
 
-- [source package](https://wiki.debian.org/Packaging/SourcePackage?action=show&redirect=SourcePackage) 
+- [source package](https://wiki.debian.org/Packaging/SourcePackage) 
 The upstream tar.gz + a .dsc file + a debian.tar.xz file.
 
-- [binary package](https://wiki.debian.org/Packaging/BinaryPackage?action=show&redirect=DebianPackage) 
+- [binary package](https://wiki.debian.org/Packaging/BinaryPackage) 
 The .deb file(s) resulting from *building* a source package.
 
 - [backports](https://wiki.debian.org/Backports): In the official Debian 
