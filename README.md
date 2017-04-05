@@ -24,7 +24,7 @@ Guide* workflows, and should be used **together with the guide**.
 
 Note: in this guide we will use terms such as *upstream*, or 
 *backport*, etc that have some specific meaning in the context of packaging. 
-See the [glossary](Glossary.md) for definitions
+See the [glossary](glossary.md) for definitions
 
 
 ## Workflows
