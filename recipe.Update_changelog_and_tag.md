@@ -26,12 +26,12 @@ before updating the changelog, we assume that any problems at this stage can
 only be caused by the `changelog` file). Do any necessary changes and ammend the
 last commit (use `--ammend` when committing the changes). Then build again ...
 
-## tag
+## Tag
 
 When everything is finally correct, tag the package with: 
 `gbp buildpackage --git-tag-only`.
 
-## push to the remote git repo
+## Push to the remote git repo
 
 Finally, do not forget to [push your local changes to the remote packaging repo](recipe.Push_to_the_remote_git_repo.md)
 
