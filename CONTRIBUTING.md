@@ -8,3 +8,5 @@ a personal fork and submit a Merge Request, so we can review your changes before
 integrating them).
 
 Of course you can also [do a Merge Request manually](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html)
+
+Also, check the list of [open known issues](https://git.cells.es/ctpkg/documentation/issues)
