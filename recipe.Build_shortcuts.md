@@ -19,9 +19,9 @@ a lot of build-dependencies).
 
 One thing you can do is to do the coarse debugging of the build outside the 
 chroot:
-- first install the build-depends in the docker with apt-get 
-- then use `pdbuild` to build the package
-- maybe [run lintian manually](recipe.Manually_run_quality_checks.md)
+- first install the build dependencie of your package in the docker with apt-get 
+- then use `debuild -uc -us` to build the package
+- then you can clean your source tree with `debuild clean`
 
 **IMPORTANT** Keep in mind that this should only be done to get unstuck, but 
 **under any concept** should you upload a package created like this to the 
@@ -29,13 +29,15 @@ repos. Instead, once your package builds fine outside the chroot, do *at least*
 [one build the standard way](recipe.Build_package.md) and pay attention to any 
 errors, including those from lintian and piuparts
 
+
 ## Use Lintian Overrides
 
-Lintian-overrides are a mean to **avoid false possitives** from lintian. Not a 
-way of  neglecting to fix a lintian error.
+**Lintian-overrides are a mean to avoid false possitives from lintian. Not a 
+way of  neglecting to fix a lintian error.**
 
 That said, sometimes the problem is upstream and as a packager you cannot do 
-much but to report the problem upstream and add a lintian override.
+much but to report the problem upstream and [add a lintian override](https://lintian.debian.org/manual/section-2.4.html).
 
-In such case, please document the override and inform the upstream in order to 
+In such case, please **document the override with a comment in the same override
+file**, justifying why you could not fix it and inform the upstream in order to 
 have it fixed.
