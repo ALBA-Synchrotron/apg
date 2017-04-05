@@ -1,4 +1,4 @@
-# ALBA Packaging Guide (by CTGenSoft)
+# ALBA Packaging Guide
 
 ## Introduction
 
