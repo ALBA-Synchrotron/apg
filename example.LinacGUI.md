@@ -81,7 +81,7 @@ install in `/usr/share/linacgui` (instead of in the default python path) and to
 not generate `.pyc` files. Both changes were done adding the `PYBUILD_INSTALL_ARGS` 
 variable: `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/linacgui --no-compile`
 The `rules` file was also modified to [autogenerate the man pages during the 
-package creation](https://git.cells.es/ctpkg/documentation/blob/master/Auto_generation_of_man_pages.md).
+package creation](recipe.Autogenerating_manpages.md).
 This accounts for the addition of the `MANS` and `PYTHONPATH` variables, the 
 creation of the `%.1:` target and the override of `dh_clean` and `dh_installman`.
 Finally, a problem with permissions in the egg file contents (reported by 
@@ -147,5 +147,5 @@ git push --tags
 -------------------------------------------------------------------------------
 
 > **Note**:
-> You can avoid the most common lintian errors checking this [list](https://git.cells.es/ctpkg/documentation/blob/master/Typical_lintian_errors.md)
+> You can avoid the most common lintian errors checking this [list](recipe.Avoid_typical_lintian_errors.md)
 

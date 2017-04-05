@@ -157,7 +157,7 @@ git push --tags
 -------------------------------------------------------------------------------
 
 > **Note**:
-> You can avoid the most common lintian errors checking this [list](https://git.cells.es/ctpkg/documentation/blob/master/Typical_lintian_errors.md)
+> You can avoid the most common lintian errors checking this [list](recipe.Avoid_typical_lintian_errors.md)
 
 
 

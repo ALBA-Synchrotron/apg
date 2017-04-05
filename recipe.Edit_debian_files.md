@@ -50,4 +50,4 @@ Notes:
 - Deciding the right place for installing a given file is one of the most common
 sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md).
 
-- You may also be interested in reading [how to auto-generate man pages](https://git.cells.es/ctpkg/documentation/blob/master/Auto_generation_of_man_pages.md)
+- You may also be interested in reading [how to auto-generate man pages](recipe.Autogenerating_manpages.md)
