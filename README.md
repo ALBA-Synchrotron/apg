@@ -61,13 +61,3 @@ When packaging for ALBA, you will likely be in one of the following cases :
 3. [Create local packaging git repo with dh_make](recipe.Create_local_packaging_git_repo_with_dh_make.md)
 4. Proceed as in Workflow B-4 and next
 
-## TODO 
-
-The following things still need to be done regarding this guide:
-- Add example for a C++ DS
-- Add example for a driver
-- Add example for "maintenance"
-- Add workflows diagram
-- Implement CI for packaging (and review the workflows accordingly)
-- Automate calling dupload automatically on tag
-- Document configuration and usage of watch files
