@@ -18,3 +18,4 @@ may not be clear from the generic documents.
 - Libraries: `/usr/lib{64}/`
 - (Taurus)GUIs: `/usr/shared/GUI_NAME/`
 - Drivers: `/lib`
+
