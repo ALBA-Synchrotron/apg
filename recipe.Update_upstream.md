@@ -11,7 +11,7 @@ If you are updating an existing package with a new upstream version, you should 
 Note: we haven???t yet validated this workflow at ALBA.
 - If the package provides a working [`debian/watch` file]
 (https://www.debian.org/doc/manuals/maint-guide/dother.en.html#watch),
-it should be possible to use `gbp import-orig --uscan`.
+it should be possible to use `gbp import-orig --uscan --merge-mode=replace --pristine-tar`.
 Note: we haven???t yet validated this workflow at ALBA.
 - If the above methods are not ok for you, you can always fall back to
 using a tarball from upstream (See [Appendix 5](Appendix_5.md)) and issuing 
