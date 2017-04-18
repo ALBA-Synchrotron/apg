@@ -76,16 +76,20 @@ etc.). In this point we explain the rationale behind each change to the debian f
 only came after a long iterative process of building the package and fixing the errors reported by linitan (or detected on installation)
 
 * [rules](https://git.cells.es/ctpkg/linacgui_deb/blob/c2de5857820c155d5c5168f009e6793b8f0cdf88/debian/rules)
-file was modified to change the behavior of `dh_auto_install` in order to 
-install in `/usr/share/linacgui` (instead of in the default python path) and to
-not generate `.pyc` files. Both changes were done adding the `PYBUILD_INSTALL_ARGS` 
-variable: `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/linacgui --no-compile`
-The `rules` file was also modified to [autogenerate the man pages during the 
-package creation](recipe.Autogenerating_manpages.md).
-This accounts for the addition of the `MANS` and `PYTHONPATH` variables, the 
-creation of the `%.1:` target and the override of `dh_clean` and `dh_installman`.
-Finally, a problem with permissions in the egg file contents (reported by 
-lintian) was fixed by overriding `dh_fixperms`.
+file was modified for various things:
+  - to change the behavior of `dh_auto_install` in order to install in 
+  `/usr/share/linacgui` (instead of in the default python path) and to not 
+  generate `.pyc` files. Both changes were done adding the `PYBUILD_INSTALL_ARGS`
+  variable: `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/linacgui --no-compile`
+  - The `rules` file was also modified to [autogenerate the man pages during the 
+  package creation](recipe.Autogenerating_manpages.md).
+  This accounts for the addition of the `MANS` and `PYTHONPATH` variables, the 
+  creation of the `%.1:` target and the override of `dh_clean` and `dh_installman`.
+  - A problem with permissions in the egg file contents (reported by lintian) 
+  was fixed by overriding `dh_fixperms`.
+  - On [a later commit](https://git.cells.es/ctpkg/linacgui_deb/commit/716b38cc611f32287bd16fb97309a7c523330103), 
+  an extra override of the `dh_python2` rule was added to allow this GUI to be 
+  run under a virtualenv (needed for compatibility with the taurus3 package)
 
 * [copyright](https://git.cells.es/ctpkg/linacgui_deb/blob/master/debian/copyright) is needed to pass the lintian checks.
 
