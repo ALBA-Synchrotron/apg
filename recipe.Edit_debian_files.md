@@ -51,3 +51,7 @@ Notes:
 sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md).
 
 - You may also be interested in reading [how to auto-generate man pages](recipe.Autogenerating_manpages.md)
+
+- Consider adding a [working watch file](https://wiki.debian.org/debian/watch). 
+(For upstream code in git.cells.es, the upstream project must be public, and an 
+example watch file can be found [here](https://git.cells.es/ctpkg/linacgui_deb/blob/46ffecf544cd5381ecb799e7d32c1e0126164dc8/debian/watch) )
