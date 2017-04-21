@@ -9,11 +9,12 @@ creating this specific package is explained in detail.
 
 
 - Python Device Server: [PyLinkCam](example.PyLinkCam.md)
-- C++ Device Server: 
+- C++ Device Server: [SerialLine](example.SerialLine.md)
 - Python library:[fandango](example.fandango.md) python-taurus, python-sardana
-- C++ Library: [Yat](example.yat.md)
+- C++ Library: [Yat](example.yat.md), [SerialLine](example.SerialLine.md)
 - TaurusGUI: [LinacGUI](example.LinacGUI.md)
 - Driver: linux-gpb
+- Single source packages yielding multiple binary packages: [SerialLine](example.SerialLine.md)
 
 Note: you can also use official packages for reference. In this case, if you do 
 not have access to their packaging CVS, you can simply unpack the sources with:
