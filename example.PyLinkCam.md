@@ -54,6 +54,9 @@ the necesary changes to build the project.
 * [control](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/control). Was modified to edit the descriptions.
 * [copyright](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/copyright). Add a basic copyright file.
 * [tangods-pylinkam.install](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.install) This file renames the launcher.
+<br/>**Note :** Since we use `dh-exec`-extended syntax in`tangods-pylinkam.install` we must give it
+execution permissions (`chmod 777 debian/tangods-pylinkam.install`).
+<br/>See its [man page](https://manned.org/dh-exec-install.1) for more details.
 * [tangods-pylinkam.links](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/tangods-pylinkam.links) 
 This file is used to create a sym-link for the DS launcher
 in `/usr/lib/tango` following the [Appendix 1](Appendix_1.md) convention.
