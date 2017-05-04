@@ -31,8 +31,9 @@ Keep in mind the following notes:
   file should list the modifications). After that the upstream branch has
   to be merged into the master branch. 
 
-Debpack is configured to automatically update the changelog after a successful 
-`gbp import-orig` call.
+A successful `gbp import-orig` creates a non-commited snapshot changelog. Before 
+the next steps, the changelog version must be properly modified and commited using 
+the following command: `gbp dch --release --auto --commit` . 
 
 For working with patches to the upstream code (e.g. if you are packaging a code 
 that needs some modification to run on debian, or which needs a modification 
