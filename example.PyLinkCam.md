@@ -61,12 +61,14 @@ execution permissions (`chmod 777 debian/tangods-pylinkam.install`).
 This file is used to create a sym-link for the DS launcher
 in `/usr/lib/tango` following the [Appendix 1](Appendix_1.md) convention.
 * [rules](https://git.cells.es/ctpkg/pylinkam_deb/blob/8e48e8ae61f99cb37589703fe422add5d6176f3e/debian/rules). 
-Since this is for a DS package, the python module should not be installed in the
+Since this is a DS package, the python module should not be installed in the
 default python path but in `/usr/share/tangods-pylinkam`. The rules file was 
 modified to set the proper configuration of `dh_auto_install` accordingly by adding:
 `export PYBUILD_INSTALL_ARGS=--install-lib=/usr/share/tangods-pylinkam --no-compile `.
+Moreover, the lauchers must be only present in `/usr/lib/tango` it should be fixed in a `override_dh_install`
+but since we are autogenerating the man pages it has to be postponed after `override_dh_installman`.
 Other modifications to the rules file were done later on to fix errors reported 
-by lintian (see next step)
+by lintian (see next step).
 
 Even though lintian does not trigger any warning, it is a good practice to add 
 `postinstall` and `prerm` scripts, as you can see in this [commit](https://git.cells.es/ctpkg/pylinkam_deb/commit/efbabe36189ffd8e59be90ca3c3fcd2a01169837).
@@ -100,8 +102,11 @@ override_dh_clean:
 %.1:
 	help2man -n '$* DS' --no-info --no-discard-stderr --include debian/help2man -o $(CURDIR)/debian/$@ ./debian/tangods-pylinkam/usr/bin/$*
 
+
 override_dh_installman: $(MANS)
 	dh_installman
+	# remove the launchers (it should be a dh_install action but it is need to man pages creation)
+    rm -rf debian/tangods-pylinkam/usr/bin/
 ``` 
 
 Also, the following files were added to the debian folder: 
