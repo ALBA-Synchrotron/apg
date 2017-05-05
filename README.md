@@ -40,7 +40,8 @@ When packaging for ALBA, you will likely be in one of the following cases :
 4. [Edit the Debian Files](recipe.Edit_debian_files.md)
 5. [Build package](recipe.Build_package.md)
 6. [Update Changelog and tag](recipe.Update_changelog_and_tag.md)
-7. [Upload artifacts](recipe.Upload_artifacts.md)
+7. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
+8. [Upload artifacts](recipe.Upload_artifacts.md)
 
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
@@ -48,8 +49,7 @@ When packaging for ALBA, you will likely be in one of the following cases :
 2. [Download the debian source package](recipe.Download_a_Debian_source_package.md)
 3. [Create the local gbp repo with `gbp import-dsc`](recipe.Create_the_local_gbp_repo_with_gbp_import-dsc.md)
 4. [Create the remote git repo](recipe.Create_the_remote_git_repo.md)
-5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
-6. Proceed as in Workflow A-4 and next
+5. Proceed as in Workflow A-4 and next
 
 ### Workflow C - Packaging a setuptools-based python code for which no alba or debian package already exist.
 
