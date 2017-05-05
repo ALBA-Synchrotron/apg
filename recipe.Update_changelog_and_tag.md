@@ -1,4 +1,4 @@
-# Update changelog, build the package, tag it, and push
+# Update changelog, build the package and tag it
 
 ## Update the changelog
 
@@ -30,8 +30,4 @@ last commit (use `--ammend` when committing the changes). Then build again ...
 
 When everything is finally correct, tag the package with: 
 `gbp buildpackage --git-tag-only`.
-
-## Push to the remote git repo
-
-Finally, do not forget to [push your local changes to the remote packaging repo](recipe.Push_to_the_remote_git_repo.md)
 
