@@ -25,3 +25,10 @@ sometimes we “backport” something that does not actually exist in Unstable.
 a directory containing all the metadata required for packaging. It should 
 contain, at least, the following files: `control`, `copyright`, `changelog` 
 and `rules` (other files may also be present).
+
+- [cowbuilder](https://wiki.debian.org/cowbuilder): It is a wrapper for pbuilder 
+to build packages without the unnecessary compress/uncompress step, in fact using COW (Copy-On-write).
+- [gbp](http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.building.html ):
+Tool for building packages from the Git repository.
+- The quality check tools are [lintian](https://lintian.debian.org/manual/) for finding  bugs 
+and policy violations and [piupart ](https://piuparts.debian.org/) for testing the generated `.deb` packages.
