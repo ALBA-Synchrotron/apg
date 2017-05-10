@@ -26,5 +26,4 @@ See the [stdeb docs](https://pypi.python.org/pypi/stdeb) for details on usage
 and more command options and examples.
 
 The above command will create a source package in the `./deb_dist/` directory, 
-which includes a `.dsc` file that you can use to create the local gbp repo (see 
-the ?Create the local gbp repo with `gbp import-dsc`? recipe).
+which includes a `.dsc` file that you can use to create the local gbp repo.
