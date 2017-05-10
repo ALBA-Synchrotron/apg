@@ -20,13 +20,13 @@ our procedures or a deliberate choice (also see the [CONTRIBUTING guide](CONTRIB
 
 ## Examples
 
-Also, a set of [practical examples](Appendix_2.md) have been documented. These 
+A set of [practical examples](Appendix_2.md) have been documented. These 
 are intended as very specific implementation examples of the *ALBA Packaging 
 Guide* workflows, and should be used **together with the guide**.
 
 ## Glossary
 
-Note: in this guide we will use terms such as *upstream*, or 
+In this guide we will use terms such as *upstream*, or 
 *backport*, etc that have some specific meaning in the context of packaging. 
 See the [glossary](glossary.md) for definitions
 
