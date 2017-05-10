@@ -18,9 +18,13 @@ If some instruction in this document contradicts what you read in a more generic
 document, please contact someone from CTGenSoft to check if this is a mistake on
 our procedures or a deliberate choice (also see the [CONTRIBUTING guide](CONTRIBUTING.md))
 
+## Examples
+
 Also, a set of [practical examples](Appendix_2.md) have been documented. These 
 are intended as very specific implementation examples of the *ALBA Packaging 
 Guide* workflows, and should be used **together with the guide**.
+
+## Glossary
 
 Note: in this guide we will use terms such as *upstream*, or 
 *backport*, etc that have some specific meaning in the context of packaging. 
