@@ -12,7 +12,7 @@ creating this specific package is explained in detail.
 - C++ Device Server: [SerialLine](example.SerialLine.md)
 - Python module:[fandango](example.fandango.md) python-taurus, python-sardana
 - C++ Library: [Yat](example.yat.md), [SerialLine](example.SerialLine.md)
-- TaurusGUI: [LinacGUI](example.LinacGUI.md)
+- Python application (ex: TaurusGUI): [LinacGUI](example.LinacGUI.md)
 - Driver: linux-gpb
 - Single source packages yielding multiple binary packages: [SerialLine](example.SerialLine.md)
 
