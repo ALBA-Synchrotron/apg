@@ -46,6 +46,7 @@ When packaging for ALBA, you will likely be in one of the following cases :
 6. [Update Changelog and tag](recipe.Update_changelog_and_tag.md)
 7. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
 8. [Upload artifacts](recipe.Upload_artifacts.md)
+9. [Test the new package installation](recipe.Test_package_installation.md)
 
 ### Workflow B - Re-packaging (backporting) an existing debian package that does not yet exist in the Alba repo
 
