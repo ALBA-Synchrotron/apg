@@ -60,8 +60,6 @@ create_ctpkg_project linacgui_deb "Repo for packaging LinacGUI on debian" \
                                   "application, GUI, Linac, python, mrosanes, cfalcon"
 ```
 
-## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
-
 ## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 In a previous step, debian files were auto-generated (you can see the 
