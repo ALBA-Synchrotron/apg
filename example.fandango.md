@@ -69,12 +69,6 @@ create_ctpkg_project fandango_deb "Functional tools for PyTango / Tango Control 
                                   "lib, python, ALL, mrosanes, cfalcon" 
 ```
 
-## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
-```
-git push --all
-git push --tags
-```
-
 
 ## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
