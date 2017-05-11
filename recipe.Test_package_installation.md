@@ -9,7 +9,7 @@ This can be done with the following command:
 dpkg -i foo_<VERSION>.deb
 ```
 
-In the [Tips and Tricks](Appendix_6.md) appendix, you can find interesting 
-suggestions for the purpose of checking if your package can be correctly 
-installed, and that the package files will be installed at the correct 
+In the [Tips and Tricks](Appendix_6.md) appendix, you can find, among others, 
+interesting suggestions for the purpose of checking if your package can be 
+correctly installed, and that the package files will be installed at the correct 
 locations.
