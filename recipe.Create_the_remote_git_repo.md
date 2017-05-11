@@ -9,7 +9,7 @@ If you create the remote git repo manually using the web interface, remember to 
 For creating it automatically, use the following script:
 `create_ctpkg_project <SRC_NAME>_deb "<description>" "<tagslist>"`
 
-Notes: <SRC_NAME> must correspond to the source package name, and therefore comply with the naming convention from [Appendix 4](Appendix_4.md). <description> and <tagslist> are mandatory in order to filter the projects.
+Notes: SRC_NAME must correspond to the source package name, and therefore comply with the naming convention from [Appendix 4](Appendix_4.md). <description> and <tagslist> are mandatory in order to filter the projects.
 
 e.g.:
 
