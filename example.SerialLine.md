@@ -65,8 +65,6 @@ create_ctpkg_project serialline_deb "Repo for packaging SerialLine on debian" \
                                     "lib, ds, c++, cfalcon"
 ```
 
-## B5. [Push to the remote git repo](recipe.Push_to_the_remote_git_repo.md)
-
 ## A4. [Edit the Debian Folder Files as needed](recipe.Edit_the_Debian_Folder_Files.md)
 
 The `dh_make` command generated templates of most of the needed debian files.
