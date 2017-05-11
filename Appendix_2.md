@@ -10,9 +10,10 @@ creating this specific package is explained in detail.
 
 - Python Device Server: [PyLinkCam](example.PyLinkCam.md)
 - C++ Device Server: [SerialLine](example.SerialLine.md)
-- Python module:[fandango](example.fandango.md) python-taurus, python-sardana
+- Python module: [fandango](example.fandango.md) python-taurus, python-sardana
 - C++ Library: [Yat](example.yat.md), [SerialLine](example.SerialLine.md)
 - Python application (ex: TaurusGUI): [LinacGUI](example.LinacGUI.md)
+- C++ application:
 - Driver: linux-gpb
 - Single source packages yielding multiple binary packages: [SerialLine](example.SerialLine.md)
 
