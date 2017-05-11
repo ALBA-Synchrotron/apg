@@ -6,7 +6,8 @@ It is always a good idea to test that your package can be correctly installed.
 
 This can be done with the following command:
 ```
-dpkg -i foo_<VERSION>.deb
+apt-get update
+apt-get install <YOUR_PACKAGE>
 ```
 
 In the [Tips and Tricks](Appendix_6.md) appendix, you can find, among others, 
