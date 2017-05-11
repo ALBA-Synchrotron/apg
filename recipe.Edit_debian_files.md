@@ -13,9 +13,12 @@ during the build. You can see more details in the docs for the [gbp workflow]
 We strongly recommend looking at a [reference package from the Appendix  2](Appendix_2.md) 
 as an example. 
 
-cd into `debian` directory
+Go into the `debian` directory:
+```
+cd /packaging/<SRC_NAME>_deb/debian
+```
 
-This `debian` directory must contain at least the following files (the links point 
+This directory must contain at least the following files (the links point 
 to detailed info on each file from the maint-guide): 
 
 - [control](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control): 
