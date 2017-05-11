@@ -38,7 +38,7 @@ Where:
     - For svn: `<CVS>` would be `svn~r<REV>`, where `<REV>` 
       is the svn revision number. You may use:
       ```
-      echo ?+svn~r?`svnversion`
+      echo "+svn~r"`svnversion`
       ```
     - For cvs: `<CVS>` would be `cvs~r<REV>`, where `<REV>` 
       is the cvs revision number.
