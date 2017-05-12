@@ -17,4 +17,5 @@ may not be clear from the generic documents.
 - Python modules with compiled lib dependencies: `/usr/lib64/python<XY>/dist-packages`
 - Libraries: `/usr/lib{64}/`
 - (Taurus)GUIs: `/usr/shared/GUI_NAME/`
+- desktop files: `/usr/share/applications/`
 - Drivers: `/lib`
