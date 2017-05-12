@@ -34,7 +34,7 @@ cd /packaging/<SRC_NAME>_deb
 During the packaging of a code, you will need to test the build several times,
 in order to iteratively fix the build and quality check errors.
 
-For building a package, use: **`gbp buildpackage`**
+**For building a package, use:** `gbp buildpackage`
 
 --------
 
