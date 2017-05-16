@@ -17,7 +17,7 @@ They will likely output several warnings/errors that must be fixed (by going
 back to [editing the debian files](recipe.Edit_debian_files.md) and committing 
 the changes. We recommend to fix all lintian errors before run piuparts.
 
-- The build and the quality checks are done on a chroot which is automatically 
+- The build is done on a chroot which is automatically 
 removed when the build exits. This is inconvenient for debugging (e.g. you do not 
 have access to the logs). (**TODO:** find a workaround for this)
 
