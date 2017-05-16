@@ -11,11 +11,11 @@ for more details.
 errors when installing build-dependencies** during the the build process). 
 You can update it with: `cowbuilder --update`
 
-- The build process **does not** trigger the quality checks anymore (lintian, and piuparts).
-They have to be runned manually, **see [How to](recipe.Manually_run_quality_checks.md)**.
+- After building, [quality checks **must** be run](recipe.Manually_run_quality_checks.md)
 They will likely output several warnings/errors that must be fixed (by going 
 back to [editing the debian files](recipe.Edit_debian_files.md) and committing 
-the changes. We recommend to fix all lintian errors before run piuparts.
+the changes. We recommend to fix all lintian errors before bothering with
+piuparts.
 
 - The build is done on a chroot which is automatically 
 removed when the build exits. This is inconvenient for debugging (e.g. you do not 
@@ -36,6 +36,8 @@ During the packaging of a code, you will need to test the build several times,
 in order to iteratively fix the build and quality check errors.
 
 **For building a package, use:** `gbp buildpackage`
+
+**And do not forget to [run the Quality checks](recipe.Manually_run_quality_checks.md)**
 
 --------
 
