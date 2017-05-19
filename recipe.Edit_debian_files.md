@@ -30,7 +30,8 @@ standards version (**currently, 3.9.8**).
 - [copyright](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#copyright): 
 this file lists which license applies to each file in the package (both upstream
 and debian files). Non-DFSG (DFSG standing for Debian Free Software Guidelines) 
-code files should also be listed here.
+code files should also be listed here. **You can find a template in /templates path of your
+debpack container**.
 
 - [changelog](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#changelog): 
 this is the **packaging** changelog. Do **not** include **upstream** changes info.
