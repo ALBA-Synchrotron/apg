@@ -10,7 +10,7 @@ and getting back to editting more files to solve the errors/warnings found
 during the build. You can see more details in the docs for the [gbp workflow]
 (http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.intro.html#GBP.WORKFLOW)
 
-We strongly recommend looking at a [reference package from the Appendix  2](Appendix_2.md) 
+**IMPORTANT:** We strongly recommend looking at a [reference package from the Appendix  2](Appendix_2.md) 
 as an example. 
 
 Go into the `debian` directory:
@@ -51,10 +51,14 @@ any new package.
 Typically these would be used for fine-tuning what is done by the `rules` 
 makefile.
 
-Notes:
+**Notes:**
 
 - Deciding the right place for installing a given file is one of the most common
 sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md).
+The place for configuring how and where should each file be installed, is the 
+`debian/rules` file, and more specifically, the "dh_install" rule and the 
+`debian/<package>.install` files. **Please refer to the closest [exemplary 
+package](Appendix_2.md) for hints on how deal with this in your specific case**. 
 
 - You may also be interested in reading [how to auto-generate man pages](recipe.Autogenerating_manpages.md)
 
