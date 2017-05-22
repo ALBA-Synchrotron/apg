@@ -1,11 +1,10 @@
 # Create the local gbp repo with `gbp import-dsc`
  
-You can create a local gbp repo by importing a .dsc file. Apply the following 
-command from the folder where the `.dsc` file is located:
+You can create a local gbp repo by importing a .dsc file:
 
 ```
 cd /packaging
-gbp import-dsc <dscfile> /packaging/<SRC_NAME>_deb --pristine-tar
+gbp import-dsc <path-to-dscfile> /packaging/<SRC_NAME>_deb --pristine-tar
 cd /packaging/<SRC_NAME>_deb
 git remote add origin https://git.cells.es/ctpkg/<SRC_NAME>_deb.git
 ```
