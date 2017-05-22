@@ -13,7 +13,8 @@ cd /packaging/<package>_deb
 lintian -iI --suppress-tags-from-file=/root/lintian-tags.txt
 ```
 
-At least all lintian error messages have to be fixed/overrided.
+At least all lintian ERROR messages have to be fixed/overrided. WARNINGS are in 
+general worth fixing too.
 
 ## Piuparts
 
