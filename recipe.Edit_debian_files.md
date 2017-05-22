@@ -56,9 +56,10 @@ makefile.
 - Deciding the right place for installing a given file is one of the most common
 sources of doubts. Check [Appendix 1 (Conventions for file path locations)](Appendix_1.md).
 The place for configuring how and where should each file be installed, is the 
-`debian/rules` file, and more specifically, the "dh_install" rule and the 
-`debian/<package>.install` files. **Please refer to the closest [exemplary 
-package](Appendix_2.md) for hints on how deal with this in your specific case**. 
+`debian/rules` file, and more specifically, the [dh_install](https://manpages.debian.org/stretch/debhelper/dh_install.1.en.html) 
+rule and its `debian/<package>.install` files. **Please refer to the closest 
+[exemplary package](Appendix_2.md) for hints on how deal with this in your 
+specific case**.
 
 - You may also be interested in reading [how to auto-generate man pages](recipe.Autogenerating_manpages.md)
 
