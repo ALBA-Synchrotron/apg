@@ -26,14 +26,14 @@ override_dh_installman: $(MANS)
     	dh_installman
 
 ``` 
-The <package>.manpages file has to be created. This file has the list of man pages to be installed.
+The `<binary package>.manpages` file has to be created. This file has the list of man pages to be installed.
 e.g.
 ```
 debian/<LAUNCHER1>.1 
 debian/<LAUNCHER2>.1
 ```
 
-The help2man file has to be created. It is used to enrich the man pages. We used to define authors information. This is our template.
+The `help2man` file has to be created. It is used to enrich the man pages. We used to define authors information. This is our template.
 
 ```
 [authors]
