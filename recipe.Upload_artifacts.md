@@ -14,15 +14,14 @@ repositories:
   packages that have not yet being tested by a human)
 
 The easiest is to use the `upload <repo_name>` command in your local packaging 
-repo (if everything is ok, 
-it will ask you for **sicilia’s passwd**).
+repo (if everything is ok, it will ask you for **sicilia’s passwd**).
 
 The `upload` needs a repository name (If you don't give any argument it will 
 show you the help):
 ```
 Usage: give a valid repo
-e.g. upload deb9_staging"
-e.g. upload deb9_production"
+e.g. upload deb9_production
+e.g. upload deb9_staging
 ```
 The `upload` command executes a `lintian` check (if there is any lintian error 
 the upload will be aborted). If the check is passed, it executes the `dput` 
