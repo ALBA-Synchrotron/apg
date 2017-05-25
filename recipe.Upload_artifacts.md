@@ -20,8 +20,8 @@ The `upload` needs a repository name (If you don't give any argument it will
 show you the help):
 ```
 Usage: give a valid repo
-e.g. upload deb9_production
-e.g. upload deb9_staging
+e.g. upload deb9_production (for our production repository)
+e.g. upload deb9_staging (for our pre-production repository)
 ```
 The `upload` command executes a `lintian` check (if there is any lintian error 
 the upload will be aborted). If the check is passed, it executes the `dput` 
