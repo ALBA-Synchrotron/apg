@@ -9,7 +9,7 @@ to upload the package build results to any of the ALBA
 repositories:
 * [deb9_production](http://controls01.cells.es/testrepo/debian9/) (this is the 
   repo that will be normally used in production machines)
-* [deb9_staging]((http://controls01.cells.es/testrepo/debian9_staging/)) (this 
+* [deb9_staging](http://controls01.cells.es/testrepo/debian9_staging/) (this 
   repo is used for pre-production testing and for automatically -CI- created 
   packages that have not yet being tested by a human)
 
